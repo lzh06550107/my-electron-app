@@ -3,6 +3,7 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
+    releaseName: "MyApp-v${version}-${platform}-${arch}",
     asar: true,
   },
   rebuildConfig: {},
