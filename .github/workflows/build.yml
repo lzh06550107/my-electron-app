@@ -38,4 +38,4 @@ jobs:
           node-version: 20
       - run: npm ci
       - name: Publish Electron App
-        run: npm run publish -- --arch=${{ matrix.arch }} --platform=${{ matrix.system.plaform }}
+        run: npm run publish -- --arch=${{ matrix.arch }} --platform=${{ matrix.system.platform }}
