@@ -13,13 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - platform: win32
-            os: windows-latest
-          - platform: darwin
-            os: macos-latest
-          - platform: linux
-            os: ubuntu-latest
+        os: [ windows-latest, macos-latest, ubuntu-latest ]
         arch: [x64, ia32]
 
     steps:
@@ -33,4 +27,15 @@ jobs:
       - name: Publish Electron App
         env:
           GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
-        run: npm run publish -- --arch=${{ matrix.arch }} --platform=${{ matrix.platform }}
+        if: matrix.os == 'windows-latest'
+        run: npm run publish -- --arch=${{ matrix.arch }} --platform=win32
+      - name: Publish Electron App
+        env:
+          GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
+        if: matrix.os == 'macos-latest'
+        run: npm run publish -- --arch=${{ matrix.arch }} --platform=drawin
+      - name: Publish Electron App
+        env:
+          GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
+        if: matrix.os == 'linux-latest'
+        run: npm run publish -- --arch=${{ matrix.arch }} --platform=linux
