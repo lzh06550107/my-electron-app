@@ -25,5 +25,5 @@ jobs:
       - run: npm ci
       - name: Publish app
         env:
-          GITHUB_TOKEN: ${{ secrets.PAGE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
         run: npm run publish

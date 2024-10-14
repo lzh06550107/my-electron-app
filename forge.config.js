@@ -58,8 +58,8 @@ module.exports = {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'delimitertech',
-          name: 'electron-starter'
+          owner: 'lzh06550107',
+          name: 'my-electron-app'
         },
         prerelease: true
       }
