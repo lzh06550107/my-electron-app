@@ -16,6 +16,9 @@ jobs:
         os: [ windows-latest, macos-latest, ubuntu-latest ]
         arch: [x64, ia32]
 
+    env:
+      GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
+
     steps:
       - name: Github checkout
         uses: actions/checkout@v4
@@ -25,17 +28,11 @@ jobs:
           node-version: 20
       - run: npm ci
       - name: Publish Electron App
-        env:
-          GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
         if: matrix.os == 'windows-latest'
         run: npm run publish -- --arch=${{ matrix.arch }} --platform=win32
       - name: Publish Electron App
-        env:
-          GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
         if: matrix.os == 'macos-latest'
         run: npm run publish -- --arch=${{ matrix.arch }} --platform=darwin
       - name: Publish Electron App
-        env:
-          GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
         if: matrix.os == 'linux-latest'
         run: npm run publish -- --arch=${{ matrix.arch }} --platform=linux
