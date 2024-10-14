@@ -24,11 +24,7 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - name: package Electron App
-        run: npm run package -- --arch=${{ matrix.arch }}
-      - name: make Electron App
-        run: npm run make -- --arch=${{ matrix.arch }}
       - name: Publish Electron App
         env:
           GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
-        run: npm run publish
+        run: npm run publish -- --arch=${{ matrix.arch }}
