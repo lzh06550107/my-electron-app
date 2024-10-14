@@ -1,7 +1,7 @@
 {
   "name": "my-electron-app",
   "productName": "Electron Starter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "demo",
   "main": "main.js",
   "scripts": {

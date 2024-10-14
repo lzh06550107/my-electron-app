@@ -8,28 +8,16 @@ module.exports = {
   rebuildConfig: {},
   makers: [
     {
-      name: '@electron-forge/maker-squirrel',
-      config: {
-        bin: 'Electron Starter'
-      }
+      name: '@electron-forge/maker-squirrel'
     },
     {
-      name: '@electron-forge/maker-dmg',
-      config: {
-        bin: 'Electron Starter'
-      },
+      name: '@electron-forge/maker-dmg'
     },
     {
-      name: '@electron-forge/maker-deb',
-      config: {
-        bin: 'Electron Starter'
-      },
+      name: '@electron-forge/maker-deb'
     },
     {
-      name: '@electron-forge/maker-rpm',
-      config: {
-        bin: 'Electron Starter'
-      },
+      name: '@electron-forge/maker-rpm'
     },
   ],
   plugins: [
