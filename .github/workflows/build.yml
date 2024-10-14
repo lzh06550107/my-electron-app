@@ -8,13 +8,23 @@ on:
 jobs:
   release:
     name: build and release electron app
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.system.os }}
 
     strategy:
       fail-fast: false
       matrix:
-        os: [ windows-latest, macos-latest, ubuntu-latest ]
+        system:
+          - os: window-latest
+            platform: win32
+          - os: macos-latest
+            platform: darwin
+          - os: ubuntu-latest
+            platform: linux
         arch: [x64, ia32]
+        exclude:
+          - system:
+              os: macos-latest
+            arch: ia32
 
     env:
       GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
@@ -28,11 +38,4 @@ jobs:
           node-version: 20
       - run: npm ci
       - name: Publish Electron App
-        if: matrix.os == 'windows-latest'
-        run: npm run publish -- --arch=${{ matrix.arch }} --platform=win32
-      - name: Publish Electron App
-        if: matrix.os == 'macos-latest'
-        run: npm run publish -- --arch=${{ matrix.arch }} --platform=darwin
-      - name: Publish Electron App
-        if: matrix.os == 'linux-latest'
-        run: npm run publish -- --arch=${{ matrix.arch }} --platform=linux
+        run: npm run publish -- --arch=${{ matrix.arch }} --platform=${{ matrix.system.plaform }}
