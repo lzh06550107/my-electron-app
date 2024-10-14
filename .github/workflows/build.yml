@@ -33,7 +33,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
         if: matrix.os == 'macos-latest'
-        run: npm run publish -- --arch=${{ matrix.arch }} --platform=drawin
+        run: npm run publish -- --arch=${{ matrix.arch }} --platform=darwin
       - name: Publish Electron App
         env:
           GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
