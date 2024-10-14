@@ -61,7 +61,8 @@ module.exports = {
           owner: 'lzh06550107',
           name: 'my-electron-app'
         },
-        prerelease: true
+        "draft": false,  // 确保这个设置为 false
+        "prerelease": false  // 如果不想发布为预发布，确保这个也为 false
       }
     }
   ]
