@@ -9,7 +9,15 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        bin: 'Electron Starter'
+      }
+    },
+    {
+      name: '@electron-forge/maker-dmg',
+      config: {
+        bin: 'Electron Starter'
+      },
     },
     {
       name: '@electron-forge/maker-zip',
@@ -17,11 +25,15 @@ module.exports = {
     },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
+      config: {
+        bin: 'Electron Starter'
+      },
     },
     {
       name: '@electron-forge/maker-rpm',
-      config: {},
+      config: {
+        bin: 'Electron Starter'
+      },
     },
   ],
   plugins: [
@@ -41,4 +53,16 @@ module.exports = {
       [FuseV1Options.OnlyLoadAppFromAsar]: true,
     }),
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'delimitertech',
+          name: 'electron-starter'
+        },
+        prerelease: true
+      }
+    }
+  ]
 };
