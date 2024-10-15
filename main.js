@@ -1,7 +1,7 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog} = require('electron')
 const path = require('node:path')
 
 const createWindow = () => {
@@ -9,8 +9,24 @@ const createWindow = () => {
     const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        // 为了将脚本附在渲染进程上，在 BrowserWindow 构造器中使用 webPreferences.preload 传入脚本的路径
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
+        }
+    })
+
+    ipcMain.handle('ping', () => 'pong')
+
+    ipcMain.on('set-title', (event, title) => {
+        const webContents = event.sender
+        const win = BrowserWindow.fromWebContents(webContents)
+        win.setTitle(title)
+    })
+
+    ipcMain.handle('dialog:openFile', async () => {
+        const { canceled, filePaths } = await dialog.showOpenDialog({})
+        if (!canceled) {
+            return filePaths[0]
         }
     })
 
