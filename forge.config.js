@@ -22,7 +22,7 @@ module.exports = {
     {
       name: '@electron-forge/maker-dmg',
       config: (arch) => ({
-        name: `my-electron-app-${version}-darwin-${arch}`,
+        name: `app-${version}-darwin-${arch}`,
         appName: 'my-electron-app',
         overwrite: true
       }),
