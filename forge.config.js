@@ -19,13 +19,22 @@ module.exports = {
       }),
     },
     {
-      name: '@electron-forge/maker-dmg'
+      name: '@electron-forge/maker-dmg',
+      config: (arch) => ({
+        name: `my-electron-app-${version}-darwin-${arch}.dmg`,
+      }),
     },
     {
-      name: '@electron-forge/maker-deb'
+      name: '@electron-forge/maker-deb',
+      config: (arch) => ({
+        name: `my-electron-app-${version}-linux-${arch}.deb`,
+      }),
     },
     {
-      name: '@electron-forge/maker-rpm'
+      name: '@electron-forge/maker-rpm',
+      config: (arch) => ({
+        name: `my-electron-app-${version}-linux-${arch}.rpm`,
+      }),
     },
   ],
   plugins: [
