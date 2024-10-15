@@ -22,27 +22,24 @@ module.exports = {
     {
       name: '@electron-forge/maker-dmg',
       config: (arch) => ({
-        options: {
-          name: `my-electron-app-app-${version}-darwin-${arch}`,
-        },
+        name: `my-electron-app-${version}-darwin-${arch}`,
+        appName: 'my-electron-app',
         overwrite: true
       }),
     },
     {
       name: '@electron-forge/maker-deb',
       config: (arch) => ({
-        options: {
-          name: `my-electron-app-${version}-linux-${arch}`,
-        },
+        name: `my-electron-app-${version}-linux-${arch}`,
+        appName: 'my-electron-app',
         overwrite: true
       }),
     },
     {
       name: '@electron-forge/maker-rpm',
       config: (arch) => ({
-        options: {
-          name: `my-electron-app-${version}-linux-${arch}`,
-        },
+        name: `my-electron-app-${version}-linux-${arch}`,
+        appName: 'my-electron-app',
         overwrite: true
       }),
     },
