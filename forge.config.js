@@ -1,6 +1,8 @@
 const { FusesPlugin } = require('@electron-forge/plugin-fuses');
 const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
+const { version } = require('./package.json')
+
 module.exports = {
   packagerConfig: {
     asar: true,
@@ -9,9 +11,12 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {
-        exe: `${productName}-${platform}-${arch}-${version}.exe`
-      }
+      config: (arch) => ({
+        name: 'my-electron-app',
+        exe: 'my-electron-app.exe',
+        noMsi: true,
+        setupExe: `my-electron-app-${version}-win32-${arch}-setup.exe`,
+      }),
     },
     {
       name: '@electron-forge/maker-dmg'
