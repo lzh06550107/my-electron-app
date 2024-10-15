@@ -16,24 +16,28 @@ module.exports = {
         exe: 'my-electron-app.exe',
         noMsi: true,
         setupExe: `my-electron-app-${version}-win32-${arch}-setup.exe`,
+        overwrite: true
       }),
     },
     {
       name: '@electron-forge/maker-dmg',
       config: (arch) => ({
-        name: `my-electron-app-${version}-darwin-${arch}.dmg`,
+        name: `app-${version}-darwin-${arch}.dmg`,
+        overwrite: true
       }),
     },
     {
       name: '@electron-forge/maker-deb',
       config: (arch) => ({
         name: `my-electron-app-${version}-linux-${arch}.deb`,
+        overwrite: true
       }),
     },
     {
       name: '@electron-forge/maker-rpm',
       config: (arch) => ({
         name: `my-electron-app-${version}-linux-${arch}.rpm`,
+        overwrite: true
       }),
     },
   ],
