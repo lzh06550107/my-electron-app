@@ -8,7 +8,10 @@ module.exports = {
   rebuildConfig: {},
   makers: [
     {
-      name: '@electron-forge/maker-squirrel'
+      name: '@electron-forge/maker-squirrel',
+      config: {
+        exe: `${productName}-${platform}-${arch}-${version}.exe`
+      }
     },
     {
       name: '@electron-forge/maker-dmg'
