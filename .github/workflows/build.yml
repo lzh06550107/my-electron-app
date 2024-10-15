@@ -19,6 +19,11 @@ jobs:
         include:
           - os: macos-latest
             arch: arm64
+        exclude:
+          - os: macos-latest
+            arch: ia32
+          - os: ubuntu-latest
+            arch: ia32
 
     env:
       GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}

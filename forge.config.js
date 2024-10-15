@@ -22,11 +22,8 @@ module.exports = {
     {
       name: '@electron-forge/maker-dmg',
       config: (arch) => ({
-        name: 'my-electron-app',
+        name: `app-${version}-darwin-${arch}`,
         appName: 'my-electron-app',
-        dmg: {
-          name: `my-electron-app-${version}-darwin-${arch}`,
-        },
         overwrite: true
       }),
     },
@@ -35,7 +32,6 @@ module.exports = {
       config: (arch) => ({
         name: 'my-electron-app',
         appName: 'my-electron-app',
-        arch: 'amd64',
         overwrite: true
       }),
     },
@@ -44,7 +40,6 @@ module.exports = {
       config: (arch) => ({
         name: 'my-electron-app',
         appName: 'my-electron-app',
-        arch: 'x86_64',
         overwrite: true
       }),
     },
